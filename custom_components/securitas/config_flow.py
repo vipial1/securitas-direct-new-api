@@ -98,7 +98,9 @@ class FlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_show_form(
                 step_id="user",
                 data_schema=vol.Schema(
-                    {vol.Required(CONF_USERNAME): str, vol.Required(CONF_PASSWORD): str}
+                    {vol.Required(CONF_USERNAME): str, vol.Required(CONF_PASSWORD): str,
+                     vol.Required(CONF_COUNTRY): str, vol.Required(CONF_CODE): str,
+                     vol.Required(CONF_CHECK_ALARM_PANEL): bool, vol.Required(CONF_SCAN_INTERVAL): int}
                 ),
             )
         return await self._create_client(
